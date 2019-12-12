@@ -1,0 +1,16 @@
+version: '3.2'
+services:
+  configuration-client:
+    build:
+      context: ./configuration-client
+    environment:
+     - SPRING_PROFILES_ACTIVE=docker
+    ports:
+     - 8080:8080
+    links:
+        - configuration-server
+  configuration-server:
+    build:
+      context: ./configuration-server
+    ports:
+     - 8888
